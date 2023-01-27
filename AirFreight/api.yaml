@@ -1,0 +1,67 @@
+swagger: "2.0"
+
+info:
+  title: "Zipa Api"
+  description: "this is my company api" 
+  version: 1.0
+  contact:
+    name: "Zipa"
+    email: "heyambujsingh@gmail.com"
+  liscence:
+    name: "MIT"
+    url: "https://opensource.org/licenses/MIT"
+  server:
+    - url: "http://localhost:6000"
+      description: "Development server"
+    - url: "http://localhost:6000"
+      description: "Production server"
+schemes: [http,https]
+
+paths:
+# get all the data
+  /air:
+    get:
+      summary: "get all the clothes"
+      description: "get all the clothes from /getCloth"
+      responses: 
+        200:
+          description: Success
+          schema:
+            type: object
+            example: A get all clothes
+
+        400:
+          description: User Error
+        500:
+          description: Internal Server Error
+# Post json/body
+
+ 
+  /addair:
+    post:
+      summary: Adds a new user
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+           $ref: "#/components/schemas/User"
+      responses:
+        '200':
+          description: OK
+
+
+# Post json/body
+components:
+  schemas:
+    User:
+      type: object
+      properties: 
+        consineeName:
+          type: string      
+        shipperName: 
+          type: string      
+        
